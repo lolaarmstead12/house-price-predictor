@@ -87,7 +87,7 @@ jobs:
    - name: Train model
      run: |
        mkdir -p models
-       python src/models/train_model.py --config configs/model_config.yaml --data data/processed/featured_house_data.csv --models-dir models --mlflowtracking-uri http://localhost:5000
+       python src/models/train_model.py --config configs/model_config.yaml --data data/processed/featured_house_data.csv --models-dir models --mlflow-tracking-uri http://localhost:5000
 
    - name: Upload trained model
      uses: actions/upload-artifact@v4
@@ -136,4 +136,4 @@ jobs:
        context: .
        file: ./Dockerfile
        push: true
-       tags: docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-pricemodel:latest
+       tags: docker.io/${{ vars.DOCKERHUB_USERNAME }}/house-price-model:latest
